@@ -18,7 +18,7 @@ export class App extends Component {
   };
 
   render() {
-    const name = this.state.name;
+    // const name = this.state.name;
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Name</h1>
