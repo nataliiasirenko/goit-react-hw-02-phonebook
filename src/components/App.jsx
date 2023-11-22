@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { nanoid } from 'nanoid';
 
-export const App = () => {
-  return <>React homework template</>;
-};
+export class App extends Component {
+  state = {
+    contacts: [],
+    name: '',
+  };
+  render() {
+    return <></>;
+  }
+}
