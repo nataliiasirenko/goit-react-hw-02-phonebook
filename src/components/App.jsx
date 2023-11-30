@@ -1,35 +1,31 @@
 import React, { Component } from 'react';
-
+import { Form } from './Form/Form';
+import shortid from 'shortid';
 // import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
     contacts: [],
-    name: '',
+    filter: '',
   };
 
-  onHandleChange = e => {
-    this.setState({ name: e.currentTarget.value });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
+  addContact = name => {
+    const newContact = {
+      id: shortid.generate(),
+      name,
+    };
+    this.setState(prevState => ({
+      contacts: [newContact, prevState.contacts],
+    }));
   };
 
   render() {
-    // const name = this.state.name;
+    const addContact = this.addContact();
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1>Name</h1>
-        <input
-          type="text"
-          name="name"
-          required
-          onChange={this.onHandleChange}
-        />
-        <button type="submit"> Add contact </button>
-      </form>
+      <>
+        <h1>Phonebook</h1>
+        <Form onSubmit={addContact} />
+      </>
     );
   }
 }
