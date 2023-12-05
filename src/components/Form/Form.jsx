@@ -6,12 +6,23 @@ export class Form extends Component {
     number: '',
   };
 
-  handleNameChange = e => {
+  //   handleNameChange = e => {
+  //     console.log(e.currentTarget.value);
+
+  //     this.setState({ name: e.currentTarget.value });
+  //   };
+
+  //   handleNumberChange = e => {
+  //     console.log(e.currentTarget.value);
+
+  //     this.setState({ number: e.currentTarget.value });
+  //   };
+
+  handleChange = e => {
+    console.log(e.currentTarget);
+    console.log(e.currentTarget.name);
     console.log(e.currentTarget.value);
-
-    this.setState({ name: e.currentTarget.value });
   };
-
   handleSubmit = () => {};
 
   render() {
@@ -20,7 +31,8 @@ export class Form extends Component {
         <form>
           <label>Name</label>
           <input
-            onChange={this.handleInputChange}
+            name="name"
+            onChange={this.handleChange}
             placeholder="Name"
             type="text"
             value={this.state.name}
@@ -28,10 +40,11 @@ export class Form extends Component {
           />
           <label>Number</label>
           <input
-            onChange={this.handleInputChange}
+            name="number"
+            onChange={this.handleChange}
             placeholder="Number"
-            type="text"
-            value={this.state.name}
+            type="number"
+            value={this.state.number}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           />
         </form>
